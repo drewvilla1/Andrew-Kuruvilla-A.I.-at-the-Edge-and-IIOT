@@ -7,7 +7,7 @@
 
 ## About Me
 
-Hi, I'm Andrew Kuruvilla. I'm STUDYING A.I. and Robotics at Hcc, and I took this course to learn how edge computing and IoT can bring intelligent,
+Hi, I'm Andrew Kuruvilla. I'm STUDYING A.I. and Robotics at Houston City College, and I took this course to learn how edge computing and IoT can bring intelligent,
 real-time decision-making to manufacturing, smart cities, and networked devices. This
 course gave me hands-on exposure to the full stack of Industrial AI: from protocol-level
 sensor communication to machine learning model development and autonomous agent design.
