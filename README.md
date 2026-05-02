@@ -7,8 +7,7 @@
 
 ## About Me
 
-Hi, I'm Andrew Kuruvilla. I'm interested in the intersection of artificial intelligence and
-industrial systems — specifically how edge computing and IoT can bring intelligent,
+Hi, I'm Andrew Kuruvilla. I'm STUDYING A.I. and Robotics at Hcc, and I took this course to learn how edge computing and IoT can bring intelligent,
 real-time decision-making to manufacturing, smart cities, and networked devices. This
 course gave me hands-on exposure to the full stack of Industrial AI: from protocol-level
 sensor communication to machine learning model development and autonomous agent design.
@@ -52,6 +51,25 @@ I also deepened my understanding of asynchronous Python and managing event loops
 across operating systems.  
 **Challenge I faced:** CoAP and OPC UA scripts had asyncio event loop errors on Windows
 and endpoint mismatches that required careful debugging with tools like UaExpert.
+
+---
+
+### Lab 06 — IIoT Temperature Time Series Forecasting with VAE Data Augmentation
+**What I did:** Applied time-series forecasting to a 97,000+ row Kaggle IoT temperature
+dataset. I preprocessed the data (datetime conversion, chronological sorting, lag features
+`temp_lag_1`/`temp_lag_2`, rolling mean), trained a SeasonalNaive forecasting model
+(seasonal length = 24), ran rolling-origin cross-validation across 5 windows, then built
+and trained a Variational Autoencoder (VAE) to generate synthetic data and retrained
+the model on the augmented dataset.  
+**What I learned:** The SeasonalNaive model achieved MAE = 4.65 and RMSE = 5.73 as a
+baseline, with cross-validation confirming consistent performance (CV MAE = 0.405).
+The VAE augmentation actually degraded results (augmented MAE = 5.22, RMSE = 6.18),
+which taught me that data quality matters far more than data quantity — poorly generated
+synthetic data actively hurts model performance. Future improvements would use LSTM,
+Transformer architectures, or GAN-based generators for more realistic augmentation.  
+**Challenge I faced:** Understanding why the augmented model performed worse, and
+connecting the VAE's reconstruction loss and KL divergence to the quality of the synthetic
+sequences it produced.
 
 ---
 
@@ -109,6 +127,24 @@ control in hybrid architectures.
 **Reflection:** Technical debugging (asyncio loops, port conflicts, library versions) is just as
 important a skill as understanding the protocols themselves — you can't deploy what you
 can't troubleshoot.
+
+---
+
+### Assignment 06 — Presentation: IIoT Time Series Forecasting Findings & Recommendations
+**Problem:** Summarize the findings and recommendations from Lab 06's time-series
+forecasting project in a presentation format for a technical audience.  
+**Approach:** Built a 10-slide presentation covering the full pipeline — dataset overview
+(97K+ records), preprocessing steps, SeasonalNaive model selection and rationale,
+performance metrics, cross-validation strategy, VAE architecture and purpose, augmented
+results, and key insights.  
+**Results:** Clearly communicated that the SeasonalNaive baseline (MAE = 4.65, RMSE = 5.73)
+outperformed the VAE-augmented model (MAE = 5.22, RMSE = 6.18 — a 12% increase in
+error), with the root cause identified as the synthetic sequences failing to capture true
+temperature dynamics.  
+**Reflection:** Translating technical results into a clear presentation forced me to articulate
+*why* something failed, not just *that* it failed. The recommendation to explore LSTMs,
+Transformers, and GAN-based generators came directly from understanding the VAE's
+specific weaknesses in this context.
 
 ---
 
